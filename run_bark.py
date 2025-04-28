@@ -1,11 +1,9 @@
 import scipy
-import torch
 from transformers import AutoProcessor, BarkModel
 import os
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
 processor = AutoProcessor.from_pretrained("./local-bark-model", local_files_only=True)
-model = BarkModel.from_pretrained("./local-bark-model", local_files_only=True).to(device)
+model = BarkModel.from_pretrained("./local-bark-model", local_files_only=True)
 
 supported_languages = ["en", "fr", "de", "es", "it", "ja", "zh", "pt", "pl", "ru", "ko", "tr", "hi"]
 
